@@ -2,14 +2,18 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
 export async function fixSeo(
   currentTitle: string, 
   currentDescription: string, 
   currentTags: string[], 
   problems: string[]
 ) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY environment variable is missing.");
+  }
+  const ai = new GoogleGenAI({ apiKey });
+
   const prompt = `You are an expert YouTube Video SEO optimizer. 
 Here are the details of a video:
 Title: "${currentTitle}"
