@@ -8,16 +8,16 @@ export function ScoreGauge({ score }: { score: number }) {
   const circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
-  let color = "text-rose-500";
-  if (score >= 50) color = "text-amber-500";
-  if (score >= 80) color = "text-indigo-600";
+  let color = "text-red-500";
+  if (score >= 50) color = "text-yellow-500";
+  if (score >= 80) color = "text-[#1db8eb]"; // Or text-green-500, but let's use the brand color for perfect score
 
   return (
-    <div className="relative flex items-center justify-center w-48 h-48 mx-auto -mt-4">
+    <div className="relative flex items-center justify-center w-full h-48 mx-auto -mt-2">
       <svg
         height={radius * 2}
         width={radius * 2}
-        className="transform -rotate-90"
+        className="transform -rotate-90 drop-shadow-md"
       >
         <circle
           stroke="currentColor"
@@ -48,11 +48,11 @@ export function ScoreGauge({ score }: { score: number }) {
           key={score}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-5xl font-extrabold text-slate-900"
+          className="text-5xl font-black text-slate-800 tracking-tighter"
         >
           {score}
         </motion.span>
-        <span className="text-xs text-slate-400 font-bold uppercase tracking-wider mt-1">of 100</span>
+        <span className="text-xs text-slate-400 font-bold uppercase tracking-widest mt-1">/ 100</span>
       </div>
     </div>
   );
