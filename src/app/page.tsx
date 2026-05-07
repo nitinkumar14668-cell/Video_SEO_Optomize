@@ -7,7 +7,7 @@ import { analyzeSeo } from "../seo";
 import { fixSeo } from "../actions/gemini";
 import { ScoreGauge } from "../components/ScoreGauge";
 
-export default function App() {
+export default function Page() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tagsInput, setTagsInput] = useState("");
