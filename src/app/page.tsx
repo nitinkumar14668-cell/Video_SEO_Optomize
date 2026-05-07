@@ -1,9 +1,11 @@
+'use client';
+
 import { useState, useEffect } from "react";
 import { Youtube, Sparkles, CheckCircle, AlertTriangle, XCircle, RefreshCw } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { analyzeSeo } from "./seo";
-import { fixSeo } from "./gemini";
-import { ScoreGauge } from "./components/ScoreGauge";
+import { analyzeSeo } from "../seo";
+import { fixSeo } from "../actions/gemini";
+import { ScoreGauge } from "../components/ScoreGauge";
 
 export default function App() {
   const [title, setTitle] = useState("");
@@ -228,4 +230,3 @@ export default function App() {
     </div>
   );
 }
-
